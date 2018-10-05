@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Mobile</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700|Montserrat:400,700' rel='stylesheet' type='text/css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+	<link href="jq.css" rel="stylesheet" type="text/css">
+	
+</head>
+
+<body>
+	<div data-role="page" id="homepage"><!--Jquery mobile container-->
+		<div data-role="header">
+			<!--<a href="#homepage" data-transition="slide">home</a>-->
+			<a href="spil.html" data-transition="flip" class="spil" >Tilbage</a>
+			
+<h1>8 ball</h1>
+</div>
+		<div role="main" class="ui-content">
+			
+</div>
+		
+<div class="container"> 
+	
+  <!-- "Hero" unit -->
+  <div class="jumbotron">
+    <h1 class="display-5 text-center" style="color: aliceblue">Spørg 8 Ball</h1>
+  </div>
+	<p style="color: aliceblue" >Refresh browser eller tryk f5 for at spille</p><br>
+ 
+
+			<div class="ball">
+				<img id="8ball" src="images/magic8ballQuestion.png" alt="">
+				<p id="answer" class="answer">Svaret kommer her!</p>
+			</div>
+
+			<div class="button">
+				<button id="questionButton">Spørg mig om alt </button>
+			</div>
+
+			<footer>
+				
+			</footer>
+
+		
+	</div>
+	
+	
+	
+	<!--Start aboutpage-->
+	<div data-role="page" id="aboutpage">
+		  
+		<div data-role="header">
+			
+		
+		</div>
+		<div role="main" class="ui-content">
+			
+		</div>
+		<div data-role="footer">
+<p> <i>Phs Casino &copy; 2018</i> </p>
+	</div>
+		</div></div>
+</body><script>
+$(document).ready(function(){
+  
+  var magic8Ball = {};
+  magic8Ball.listofanswers = ["Helt klart.", "Det kan du regne med.", "Uden tvivl.", "Ja.", "Du kan regne med det.", "Som jeg ser det, ja.", "Most likely.", "Outlook good.", "Yes.", "Signs point to yes.", "Reply hazy, try again.", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.", "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.", "Very doubtful."];
+ 
+  magic8Ball.getAnswer = function(question)
+  {
+    var randomNumber = Math.random();
+    var randomAnswer = Math.floor(randomNumber * this.listofanswers.length);
+    var answer = this.listofanswers[randomAnswer];
+    
+    $("#8ball").effect( "shake" );
+    $("#answer").text( answer );
+    $("#answer").fadeIn(3000);
+    $("#8ball").attr("src", "images/magic8ballQuestion2.png");
+
+    console.log(question);
+    console.log(answer);
+  };
+  $("#answer").hide();
+
+  var onClick = function()
+  {
+    $("#answer").hide();
+    $("#8ball").attr("src", "images/magic8ballQuestion.png");
+    var question = prompt("Hvad vil du vide?");
+    magic8Ball.getAnswer(question);
+  };
+  
+  $("#questionButton").click( onClick );
+});</script>
+</html>

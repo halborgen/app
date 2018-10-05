@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Blackjack Game</title>
+<link href="style.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+<script src="js/jquery.js"></script>
+<script src="js/blackjack.js"></script>
+	<link href="jq.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div data-role="page" id="homepage"><!--Jquery mobile container-->
+		<div data-role="header">
+			<!--<a href="#homepage" data-transition="slide">home</a>-->
+			<a href="spil.html" data-transition="flip" class="spil" >Tilbage</a>
+			
+<h1>Mini spil</h1>
+</div>
+		<div role="main" class="ui-content">
+
+	<div class="jumbotron">
+    <h1 class="display-5 text-center">Spil black jack</h1>
+		
+		
+  </div>	
+	
+		
+		</div>
+	
+		
+		
+		
+	
+	<div class='page'><p style="color: aliceblue" >Refresh browser eller tryk f5 for at spille</p>
+	<div style="text-align: center; padding-top: 15px; ">
+	  <ifame src="https://ghbtns.com/github-btn.html?user=tonyspiro&repo=blackjack&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+	</div>
+		<div id='message' class='message' style="color: aliceblue"></div> 
+        <div class='dealer-cards'>
+            
+            <div class='card card1'></div>
+            
+            <div class='card flipped card2'></div>
+            
+            <div class='new-cards'></div>
+            
+            <div class='clear'></div>
+            
+            <div id='dealerTotal' class='dealer-total'></div>
+            
+        </div>
+        
+        <div class='clear'></div>
+        
+        <div class='player-cards'>
+            
+            <div class='card card1'></div>
+            
+            <div class='card card2'></div>
+        	
+            <div class='new-cards'></div>
+            
+        	<div class='clear'></div>
+            
+            <div id='playerTotal' class='player-total' ></div>
+            
+            
+        </div>
+        
+        <div class='buttons'>
+        	<div class='btn' id='hit'>Hit</div>
+        	<div class='btn' id='stand'>Stand</div>
+    	</div>
+    	<div class='betting-area'>
+    		<b style="color: aliceblue">Your Bet</b><br />
+    		<div id='bet' class='bet money'>0</div>
+    		
+    		<div>
+        		<div class='btn' id='more'>+</div>
+        		<div class='btn' id='less'>-</div>
+	    	</div>
+    		<div class='clear'></div>
+    	</div>
+    	<div>
+    		<b style="color: aliceblue">Available Funds</b><br />
+    		<span id='money' class='money'>500</span>
+    		<div class='clear'></div>
+    	</div> 
+        
+        <div class='clear'></div>
+        
+          
+    </div></div>
+</body>
+</html> 

@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Mobile</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="jq.css" rel="stylesheet" type="text/css">
+	
+		
+<br>
+
+
+		
+</head>
+
+<body>
+	<div data-role="page" id="homepage" data-theme="b">
+  <div data-role="header">
+    <h1>Gætte leg</h1>
+	  <a href="spil.html" data-transition="slide" class="spil" >tilbage</a>
+  </div>
+ <div role="main" class="ui-content">
+
+	<div class="jumbotron">
+    <h1 class="display-5 text-center">Spil Gætte lege</h1>
+		
+		
+  </div>	
+	
+		
+		</div>
+	
+    <ul data-role="listview" data-inset="true"><br>
+      <li><a href="#trueFalseGames" data-transition="slide">Sandt eller falsk</a> 
+      </li><br>
+      <li><a href="#cat2" data-transition="slide">Flere svar spillet</a> 
+      </li>
+    </ul>
+  </div>
+  
+
+
+
+<!-- The True False Games -->
+
+<div data-role="page" id="trueFalseGames" data-theme="f" style="background-color: #3E3E3E">
+  <div data-role="header">
+    <h1>Gætte leg</h1>
+    <a href="spil.html" data-transition="slide" class="spil" >tilbage</a> 
+  </div>
+  <div data-role="ui-content" style="margin-top:15px;">
+	  <div class="jumbotron">
+    <h1 class="display-5 text-center" style="color: aliceblue">Spil Gætte lege</h1>
+		
+		
+  </div>	
+    <ul data-role="listview" data-inset="true">
+      <li><a onClick="launch(this.id)" id="histFacts1">US/World History Facts</a> <br>
+      </li>
+      <li><a onClick="launch(this.id)" id="blinkFacts1">Fun Facts</a> 
+      </li>
+    </ul>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h4> <span style="font-size:12px; float: right;">High Score: <span></span></span></h4>
+  </div>
+
+
+  <!-- The PopUp Card -->
+  <div data-role="popup" id="card" data-dismissible="false" style="min-width:300px;" data-transition="flow" data-theme="f">
+    <div data-role="header">
+      <h1>Fact or Fiction</h1>
+    </div>
+    <div role="main" class="ui-content">
+      <div class="center">
+        <p></p>
+        <a id="true" onclick="submit(this)" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">TRUE</a>  <a id="false" onclick="submit(this)" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">FALSE</a>
+		    <a href="spil.html" data-transition="slide" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" >tilbage</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- The GameOver Card -->
+  <div data-role="popup" id="gameover" data-dismissible="false" style="min-width:300px;" data-transition="flow" data-theme="d">
+    <div data-role="header">
+      <h1></h1>
+    </div>
+    <div role="main" class="ui-content">
+      <div class="center">
+        <p></p>
+        <a id="true" onclick="retryQuiz()" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">RETRY</a>  <a id="false" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">CLOSE</a> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- The Multiple Choice Games -->
+
+<div data-role="page" id="cat2" data-theme="g">
+  <div data-role="header">
+    <h1>Catergory Two</h1>
+    <a href="#main" data-direction="reverse" data-transition="slide" class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-inline">Back</a> 
+  </div>
+  <div data-role="ui-content" style="margin-top:15px;">
+    <ul data-role="listview" data-inset="true">
+      <li><a href="#2pop1" data-rel="popup" data-transition="flow">PlaceHolder</a> 
+      </li>
+      <li><a href="#2pop2" data-rel="popup" data-transition="flow">PlaceHolder</a> 
+      </li>
+    </ul>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h4>&copy; 2014 Will Geller</h4>
+  </div>
+
+  <!-- Simple PopUps -->
+
+  <div data-role="popup" id="2pop1" class="ui-content">Answers lie in mysterious places</div>
+  <div data-role="popup" id="2pop2" class="ui-content">Answers lie in mysterious places</div>
+
+</div>
+	<script>
+	var blinkFacts1 = [
+  ['Earth is closest to the Sun in January.', 'true'],
+  ['Mark Twain invented and patented the bra-strap clasp.', 'true'],
+  ['"Home Alone" was released closer to the moon landing than it was to today.', 'true'],
+  ['Humans share 50% of there DNA with bananas', 'true'],
+  ["Adults can't breathe and swallow at the same time", 'true'],
+  ["Astronauts shrink while they're in space.", 'false'],
+  ["Astronauts become two inches taller while in space.", 'true'],
+  ["An octopus has two hearts.", 'false'],
+  ["If you could fold a piece of paper 42 times, it would reach the moon.", "true"],
+  ["Narwhals use their tusks to communicate with each other.", 'false'],
+  ["Smoking can make your nipples fall off.", 'false'],
+  ["Male otters produce venom.", 'false'],
+  ["There are more stars in the universe than there are grains of sand on all the world's beaches.", 'true'],
+];
+  var histFacts1 = [
+  ['Ben Franklin Discovered Electricity While He Was Flying a Kite.', 'false'],
+    ['For Every American Killed in WWII about 20 Soveiets were Killed.', 'true'],
+    ['By 1969 less than 5% of Americans heve tried Marijuana.', 'true'],
+    ['The Egyption Pyramids were built by a workforces of 4500 Slaves.', 'false'],
+    ['Thomas Crapper Invented the Flush Toilet.', 'false'],
+    ['Van Gogh Cut Off His Ear in a Fit of Madness.', 'false'],
+    ['Citizens found guilty at the Salem Trials were burned at the stake.', 'false'],
+    ["In the 60's the young and well educated were more likely to support the war then their elders.", 'true'],
+    ['Lincoln Fought the Civil War to End Slavery.', 'false'],
+    ['Newton Discovered Gravity When an Apple Fell on His Head.', 'false']
+];
+var retryQuizName;
+var quizData;
+var score;
+var highScore = 0;
+var round;
+var fact;
+var truthful;
+
+
+/*** LAUNCHES THE GAME WITH NEW QUIZ DATA ***/
+function launch(quizName) {
+  retryQuizName = quizName;
+  quizData = eval(quizName);
+  score = 0;
+  round = 0;
+  total = quizData.length*10;
+
+  fact = quizData[round][0];
+  truthful = quizData[round][1]
+
+  console.log(round);
+  console.log(score);
+  console.log(total);
+  console.log(fact);
+  console.log(truthful);
+
+  $('#card div.ui-content a').removeClass('greenBtn');
+  $('#card div.ui-content a').removeClass('redBtn');
+  $('#card div.ui-content p').html(fact);
+  $("#card").popup("open");
+}
+
+
+/*** SUBMITS A USER RESPONSE ***/
+function submit(current) {
+  //RIGHT
+  if (current.id == truthful) {
+    $(current).addClass('greenBtn');
+    $("#card").popup("close");
+    console.log("User clicked correctly");
+    round++;
+    score+=10;
+    if(score>highScore) {
+      highScore=score;
+    }
+    nextQuestion();
+    updateHighScore();
+  }
+  //WRONG
+  else {
+    $(current).addClass('redBtn');
+    $("#card").popup("close");
+    console.log("User clicked inccorect");
+    gameOver();
+  }
+}
+
+
+/*** OPENS THE NEXT QUESION ***/
+function nextQuestion() {
+  if (score!=total) {
+    fact = quizData[round][0];
+    truthful = quizData[round][1]
+
+    console.log(round);
+    console.log(score);
+    console.log(fact);
+    console.log(truthful);
+
+    setTimeout(function () {
+      $('#card div.ui-content a').removeClass('greenBtn');
+      $('#card div.ui-content p').html(fact);
+      $("#card").popup("open")
+    }, 600);
+  }
+  else {
+    win();
+  }
+}
+
+
+/*** Updates the HighScore ***/
+function updateHighScore() {
+  $('#trueFalseGames h4 span span').html(highScore);
+}
+
+/*** GAME OVER - LOSE ***/
+function gameOver() {
+  console.log('Game Over');
+
+  setTimeout(function () {
+    $('#gameover h1').html("Game Over!");
+    $('#gameover div.ui-content p').html("The Game Is Over. <br/> You Scored " + score + " Out Of " + total + " Points!");
+    $("#gameover").popup("open");
+  }, 600);
+}
+
+/*** GAME OVER - WIN ***/ 
+function win() {
+  console.log('You Win');
+
+  setTimeout(function () {
+    $('#gameover h1').html("You Win!");
+    $('#gameover div.ui-content p').html("Congratulations You Win! <br/> You Scored " + score + " Out Of " + total + " Points!");
+    $("#gameover").popup("open");
+  }, 600);
+}
+
+/*** RERUN SAME QUIZ DATA ***/ 
+function retryQuiz() {
+  $("#gameover").popup("close");
+  setTimeout(function () {
+    launch(retryQuizName);
+  }, 600);
+}
+	
+	</script>
+</body>
+</html>
